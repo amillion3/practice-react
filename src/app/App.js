@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import {inputForm} from '../components/inputForm/inputForm';
+import InputForm from '../components/InputForm/InputForm';
 import './App.css';
 
 class App extends Component {
+
+  formSubmitEvent = newInput => {
+    console.error(newInput);
+  }
+
   render () {
     return (
       <div className="App">
-        <button className='btn btn-danger'>test</button>
-        <inputForm />
+        <InputForm onSubmit={this.formSubmitEvent}></InputForm>
       </div>
     );
   }
