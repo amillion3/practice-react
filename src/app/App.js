@@ -11,7 +11,8 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <InputForm onSubmit={this.formSubmitEvent}></InputForm>
+        <InputForm
+          onSubmit={this.formSubmitEvent} />
       </div>
     );
   }

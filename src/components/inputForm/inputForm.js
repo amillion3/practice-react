@@ -13,19 +13,13 @@ class InputForm extends React.Component {
   state = {
     // newInput object is initially set to
     //  defaultInput, or the initial state
-    testInput: defaultInput,
+    newInput: defaultInput,
   }
 
-  formSubmit = e => {
-    e.preventDefault();
-  }
-
-  changeName = e => {
-    // state will be updated whenever input
-    //   is entered/typed
+  updateKeyStrokes = e => {
     const tempName = {...this.state.newInput};
     tempName['username'] = e.target.value;
-    this.setState({testInput: tempName});
+    this.setState({newInput: tempName})
   }
 
   render () {
@@ -39,8 +33,8 @@ class InputForm extends React.Component {
             type='text'
             id='userName'
             placeholder='John F. Smith'
-            value={testInput.userName}
-            onChange={this.changeName}
+            value={}
+            onChange={}
           />
           <button className='btn btn-primary'>Submit</button>
         </form>
