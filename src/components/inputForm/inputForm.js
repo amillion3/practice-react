@@ -19,14 +19,24 @@ class InputForm extends React.Component {
     const tempName = {...this.state.newUserInput};
     tempName[inputId] = e.target.value;
     console.error('value', e.target.value);
-    this.setState({newInput: tempName});
+    this.setState({newUserInput: tempName});
   }
 
   changeName = e => {
     this.updateFormNameState('userName', e);
   }
 
+  formSubmit = e => {
+    const {onSubmit} = this.props;
+    // const {newUserInput} = this.state;
+    e.preventDefault();
+    onSubmit(this.state.newUserInput);
+    this.setState({newUserInput: defaultInput});
+    console.error('abc', this.state);
+  }
+
   render () {
+    const { newUserInput } = this.state;
     return (
       <div className='row'>
         <form onSubmit={this.formSubmit}>
@@ -36,7 +46,7 @@ class InputForm extends React.Component {
             type='text'
             id='userName'
             placeholder='John F. Smith'
-            // value={}
+            value={newUserInput.userName}
             onChange={this.changeName}
           />
           <button className='btn btn-primary'>Submit</button>
